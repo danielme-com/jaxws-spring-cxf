@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.danielme.demo</groupId>
+	<artifactId>spring-cxf-ws</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	<description>Maven + JAX-WS + Spring + CXF web project just for playing around with SOAP web services
+	</description>
+	<inceptionYear>2013</inceptionYear>
+
+
+	<licenses>
+		<license>
+			<name>GNU GENERAL PUBLIC LICENSE, Version 3.0</name>
+			<url>http://www.gnu.org/licenses/gpl.html</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>danielme.com</id>
+			<name>Daniel Medina</name>
+		</developer>
+	</developers>
+
+	<properties>
+		<cxf.version>2.7.3</cxf.version>
+		<java.version>1.6</java.version>
+	</properties>
+
+
+	<build>
+
+		<pluginManagement>
+
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.3</version>
+					<configuration>
+						<archive>
+							<manifestEntries>
+								<Implementation-Version>${project.version}
+								</Implementation-Version>
+								<Implementation-Title>${artifactId}</Implementation-Title>
+								<Extension-Name>${artifactId}</Extension-Name>
+								<Built-By>Daniel Medina - danielme.com</Built-By>
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>
+
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-eclipse-plugin</artifactId>
+					<configuration>
+						<wtpapplicationxml>true</wtpapplicationxml>
+						<wtpversion>2.0</wtpversion>
+					</configuration>
+				</plugin>
+
+			</plugins>
+
+		</pluginManagement>
+
+	</build>
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.2.2.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-api</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+
+	</dependencies>
+
+</project>
