@@ -57,5 +57,18 @@
 			<servlet-name>cxf</servlet-name>
 			<url-pattern>/ws/*</url-pattern>
 		</servlet-mapping>
+		
+		<!--  <security-constraint>
+  			<web-resource-collection>
+    			<url-pattern>/ws/*</url-pattern>
+  			</web-resource-collection>
+  			<auth-constraint>
+    			<role-name>test</role-name>
+  			</auth-constraint>
+		</security-constraint>
+
+		<login-config>			
+  			<auth-method>BASIC</auth-method>
+  		</login-config>		-->
    
 </web-app>

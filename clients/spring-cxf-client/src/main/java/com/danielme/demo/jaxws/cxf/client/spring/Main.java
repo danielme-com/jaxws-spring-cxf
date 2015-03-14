@@ -1,9 +1,16 @@
 package com.danielme.demo.jaxws.cxf.client.spring;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.xml.ws.BindingProvider;
+
+import org.apache.cxf.jaxws.JaxWsClientProxy;
 import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+
 
 
 import com.danielme.demo.jaxws.cxf.model.Player;
@@ -19,7 +26,10 @@ public class Main
 		//Initializes Spring Container 
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");		
 		ITeamService teamServiceClient = (ITeamService) applicationContext.getBean("teamServiceClient");		
-		
+		//BASIC authenticaction
+		/*Map requestContext = ((BindingProvider) teamServiceClient).getRequestContext();
+	    requestContext.put(BindingProvider.USERNAME_PROPERTY, "usuario");
+	    requestContext.put(BindingProvider.PASSWORD_PROPERTY, "password");*/
 		//test
 		logger.info("getTeam");		
 		List<Player> team = teamServiceClient.getTeam();
@@ -30,16 +40,16 @@ public class Main
 				
 		logger.info("\n updatePlayerByNumber");
 		teamServiceClient.updatePlayerByNumber(1, new Player(1,"Anders Lindegaard", 28));
+		
+		logger.info("\n deletePlayer");
+		teamServiceClient.deletePlayer(6); 
 				
-				logger.info("\n deletePlayer");
-				teamServiceClient.deletePlayer(6); 
-				
-				logger.info("\n getPlayers");
-				team = teamServiceClient.getPlayers(1,3,6);		
-				for (Player player : team)
-				{
-					logger.info("       " + player.getNumber() + " : " + player.getName() + " (" + player.getAge() +")");
-				}
+		logger.info("\n getPlayers");
+		team = teamServiceClient.getPlayers(1,3,6);		
+		for (Player player : team)
+		{
+			logger.info("       " + player.getNumber() + " : " + player.getName() + " (" + player.getAge() +")");
+		}
 	}
 
 }

@@ -5,7 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.annotation.Resource;
 import javax.jws.WebMethod;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.WebServiceContext;
+import javax.xml.ws.handler.MessageContext;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -16,13 +20,15 @@ import com.danielme.demo.jaxws.cxf.model.Player;
 public class TeamServiceImpl implements ITeamService 
 {
 	
-	public static final Logger logger = Logger.getLogger(TeamServiceImpl.class);
+	private static final Logger logger = Logger.getLogger(TeamServiceImpl.class);
 	 
 	private List<Player> team = null;	
 	
+	//@Resource
+    //WebServiceContext wsContext;
 
 	public TeamServiceImpl() 
-	{
+	{        
 	    team = new LinkedList<Player>();
 	    team.add(new Player(1, "David De Gea", 22));
 	    team.add(new Player(2, "Rafael", 22));
@@ -37,6 +43,10 @@ public class TeamServiceImpl implements ITeamService
 	@Override
 	public List<Player> getTeam() 
 	{
+		//credentials
+		//MessageContext messageContext = wsContext.getMessageContext();
+        //String user = (String) messageContext.get(BindingProvider.USERNAME_PROPERTY);
+        //String password = (String) messageContext.get(BindingProvider.PASSWORD_PROPERTY);
 		logger.info("team requested");
 		return team;
 	}
