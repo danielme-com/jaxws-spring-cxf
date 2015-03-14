@@ -26,8 +26,11 @@
 		</developer>
 	</developers>
 
-	<properties>
-		<cxf.version>2.7.3</cxf.version>
+	<properties>	
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cxf.version>2.7.14</cxf.version>
+		<spring.version>3.2.13.RELEASE</spring.version>
+		<log4j.version>1.2.14</log4j.version>
 		<java.version>1.6</java.version>
 	</properties>
 
@@ -45,7 +48,7 @@
 					<configuration>
 						<source>${java.version}</source>
 						<target>${java.version}</target>
-						<encoding>UTF-8</encoding>
+						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
 
@@ -67,7 +70,7 @@
 					</configuration>
 				</plugin>
 
-				
+				<!-- mvn eclipse:eclipse -Dwtpversion=2.0 -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-eclipse-plugin</artifactId>
@@ -89,7 +92,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>3.2.2.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
@@ -113,7 +116,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${log4j.version}</version>
 		</dependency>
 
 
