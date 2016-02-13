@@ -28,7 +28,8 @@
 
 
 	<properties>
-		<cxf.version>2.7.3</cxf.version>
+		<cxf.version>2.7.18</cxf.version>
+		<log4j.version>1.2.17</log4j.version>
 		<java.version>1.6</java.version>
 		<project.build.mainClass>com.danielme.demo.jaxws.cxf.client.Main</project.build.mainClass>
 	</properties>
@@ -36,7 +37,7 @@
 	<build>
 
 		<plugins>
-		
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -105,7 +106,7 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
+			<version>${log4j.version}</version>
 		</dependency>
 
 
