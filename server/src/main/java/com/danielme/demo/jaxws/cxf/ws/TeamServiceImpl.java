@@ -8,6 +8,7 @@ import java.util.ListIterator;
 import javax.annotation.Resource;
 import javax.jws.WebMethod;
 import javax.xml.ws.BindingProvider;
+import javax.xml.ws.BindingType;
 import javax.xml.ws.WebServiceContext;
 import javax.xml.ws.handler.MessageContext;
 
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import com.danielme.demo.jaxws.cxf.model.Player;
 
 @Service(value="teamService")
+@BindingType(javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)
 public class TeamServiceImpl implements ITeamService 
 {
 	
