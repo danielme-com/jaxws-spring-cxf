@@ -12,15 +12,15 @@ import com.danielme.demo.jaxws.cxf.model.Player;
  *
  */
 @WebService
-public interface ITeamService 
-{	
-	List<Player> getTeam();
-	
-	List<Player> getPlayers(int... numbers);
-	
-	boolean updatePlayerByNumber(int number, Player player);
-	
-	boolean deletePlayer(int number);
-	
-	void foo();
+public interface ITeamService {
+
+    List<Player> getTeam();
+
+    List<Player> getPlayers(int... numbers);
+
+    boolean updatePlayerByNumber(int number, Player player);
+
+    boolean deletePlayer(int number);
+
+    void foo();
 }

@@ -1,12 +1,14 @@
 package com.danielme.demo.jaxws.cxf.client;
 
 import java.security.KeyStore;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
+import javax.xml.ws.handler.Handler;
 
 import org.apache.cxf.configuration.jsse.TLSClientParameters;
 import org.apache.cxf.endpoint.Client;
@@ -35,8 +37,13 @@ public class Main {
 		JaxWsProxyFactoryBean jaxWsProxyFactoryBean = new JaxWsProxyFactoryBean();
 		jaxWsProxyFactoryBean.setServiceClass(ITeamService.class);
 		jaxWsProxyFactoryBean.setAddress(properties.getProperty("endpoint"));
-		ITeamService teamServiceClient = (ITeamService) jaxWsProxyFactoryBean.create();
-
+		
+		/*List<Handler> handlers = new LinkedList<Handler>();
+        handlers.add(new CustomSOAPHandler());
+        jaxWsProxyFactoryBean.setHandlers(handlers);*/
+		
+		ITeamService teamServiceClient = (ITeamService) jaxWsProxyFactoryBean.create();		
+		
 		// certificado digital
 		/*TLSClientParameters tlsParams = new TLSClientParameters();
 		KeyStore keystore = KeyStore.getInstance("JKS");
