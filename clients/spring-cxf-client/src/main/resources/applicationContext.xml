@@ -16,10 +16,14 @@
 
 <context:property-placeholder location="classpath:config.properties" />
 
-<jaxws:client id="teamServiceClient"
+    <jaxws:client id="teamServiceClient"
               serviceClass="com.danielme.demo.jaxws.cxf.ws.ITeamService"
               address="${endpoint}" />
               
+    <jaxws:client id="fileTransferMTOMClient"
+              serviceClass="com.danielme.demo.jaxws.cxf.ws.IFileTransferMTOMService"
+              address="${endpoint-mtom}"/>
+
               <!-- TLS and BASIC -->
 <!-- <http-conf:conduit name="https://localhost:8443/spring-cxf-ws/ws/v/1/teamService">
    	 <http-conf:tlsClientParameters disableCNCheck="true">   		 

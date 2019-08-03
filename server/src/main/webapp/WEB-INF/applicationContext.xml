@@ -13,7 +13,7 @@
     <context:component-scan
         base-package="com.danielme.demo" />
 
-    <!-- publish the web service (no spring)-->
+    <!-- publish the web service (no spring) -->
     <!-- <jaxws:endpoint id="teamService" implementor="com.danielme.demo.jaxws.cxf.ws.TeamServiceImpl" 
         address="/v/1/teamService" /> -->
 
@@ -28,6 +28,17 @@
         <jaxws:features>
             <bean class="org.apache.cxf.feature.LoggingFeature" />
         </jaxws:features>
+    </jaxws:endpoint>
+
+    <jaxws:endpoint id="fileTransferServiceWS"
+        implementor="#fileTransferService"
+        address="/v/1/transferFileService">
+    </jaxws:endpoint>
+
+    <jaxws:endpoint id="fileTransferMTOMServiceWS"
+        implementor="#fileTransferMTOMService"
+        address="/v/1/transferFileMTOMService">
+
     </jaxws:endpoint>
 
 </beans>
